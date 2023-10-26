@@ -1,26 +1,43 @@
 def mult_to_ten(num, base):  # converts a number into base 10
+    num_list = list(num)
+    if base == 16:
+        index_counter = 0
+        for i in num_list:
+            if i == 'A':
+                num_list.pop(index_counter)
+                num_list.insert(index_counter, '10')
+            elif i == "B":
+                num_list.pop(index_counter)
+                num_list.insert(index_counter, '11')
+            elif i == "C":
+                num_list.pop(index_counter)
+                num_list.insert(index_counter, '12')
+            elif i == "D":
+                num_list.pop(index_counter)
+                num_list.insert(index_counter, '13')
+            elif i == "E":
+                num_list.pop(index_counter)
+                num_list.insert(index_counter, '14')
+            elif i == "F":
+                num_list.pop(index_counter)
+                num_list.insert(index_counter, '15')
+            index_counter += 1
+        num = num_list
+
     revnum = []
     for i in num:  # reverses the order so that the power for each place matches the index
         revnum.insert(0, int(i))
 
     values_for_addition = []
 
-    # print("number", num)
-    # print("base", base)
-
-    index_counter = 0
+    index_counter_b = 0
     for i in revnum:
-
-        value = (base**index_counter) * i
+        value = (base**index_counter_b) * i
         values_for_addition.append(value)
 
-
-        # print("value", value)
-
-        index_counter += 1
+        index_counter_b += 1
 
     final = 0
-
     for value in values_for_addition:
         final += value
 
