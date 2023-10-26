@@ -5,11 +5,18 @@ def mult_to_ten(num, base):  # converts a number into base 10
 
     values_for_addition = []
 
+    # print("number", num)
+    # print("base", base)
+
     index_counter = 0
     for i in revnum:
-        if i == 1:
-            value = base**index_counter
-            values_for_addition.append(value)
+
+        value = (base**index_counter) * i
+        values_for_addition.append(value)
+
+
+        # print("value", value)
+
         index_counter += 1
 
     final = 0
@@ -28,6 +35,9 @@ def ten_to_mult(num, base):  # converts from base 10
         div = number // base
         mod = number % base
         remainders.insert(0, mod)
+
+        # print("div", div)
+        # print("mod", mod, '\n')
 
         number = div
     result = ""
