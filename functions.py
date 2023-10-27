@@ -1,3 +1,6 @@
+import unicodeit
+
+
 def mult_to_ten(num, base):  # converts a number into base 10
     num_list = list(num)
     if base == 16:
@@ -52,12 +55,42 @@ def ten_to_mult(num, base):  # converts from base 10
         div = number // base
         mod = number % base
         remainders.insert(0, mod)
-
-        # print("div", div)
-        # print("mod", mod, '\n')
-
         number = div
+
+    if base == 16:
+        index_counter = 0
+        for i in remainders:
+            if i == 10:
+                remainders.pop(index_counter)
+                remainders.insert(index_counter, 'A')
+            elif i == 11:
+                remainders.pop(index_counter)
+                remainders.insert(index_counter, 'B')
+            elif i == 12:
+                remainders.pop(index_counter)
+                remainders.insert(index_counter, 'C')
+            elif i == 13:
+                remainders.pop(index_counter)
+                remainders.insert(index_counter, 'D')
+            elif i == 14:
+                remainders.pop(index_counter)
+                remainders.insert(index_counter, 'E')
+            elif i == 15:
+                remainders.pop(index_counter)
+                remainders.insert(index_counter, 'F')
+            index_counter += 1
     result = ""
     for i in remainders:  # turns the list into a string
         result += str(i)
     return result
+
+
+def get_subscript(base):  # For getting subscripts
+    if base == 16:
+        subscript = '_1_6'
+    elif base == 10:
+        subscript = '_1_0'
+    else:
+        subscript = f"_{base}"
+
+    return unicodeit.replace(subscript)

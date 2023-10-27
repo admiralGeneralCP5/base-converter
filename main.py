@@ -1,27 +1,29 @@
 from functions import *
+import os
+
+os.system("clear")
 
 while True:
-    number = input("Enter a number: ")
+    print('#' * 25)
+    number = input("Enter a number: ").upper()
+    if str(number).lower() == 'c':
+        os.system('clear')
+        continue
+
     base = int(input("What is the base of your number? >>> "))
     final_base = int(input("What base do you want to convert to? >>> "))
 
     if base != 10:
         num_in_10 = mult_to_ten(number, base)
         if final_base == 10:
-            print(num_in_10)
+            answer = num_in_10
         else:
-            print(ten_to_mult(num_in_10, final_base))
+            answer = ten_to_mult(num_in_10, final_base)
     else:
-        print(ten_to_mult(number, final_base))
+        answer = ten_to_mult(number, final_base)
 
+    sub1 = get_subscript(base)
+    sub2 = get_subscript(final_base)
+    print(f"{number}{sub1} --> {answer}{sub2}")
+    print('')
 
-
-
-# if the base != 10: convert to ten
-# then convert to another base if necessary
-
-# else: determine wht base it will need to be converted to
-
-# add subscripts to output
-
-# add a verbose option to show work
