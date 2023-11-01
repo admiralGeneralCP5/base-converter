@@ -6,7 +6,7 @@ os.system("clear")
 while True:
     print('#' * 25)
     number = input("Enter a number: ").upper()
-    if str(number).lower() == 'c':
+    if str(number).lower() == '$c' or str(number).lower() == 'clear':
         os.system('clear')
         continue
 
